@@ -170,6 +170,11 @@ class MoodleStart(QtWidgets.QWidget):
 
         self.label_nameLarge.setText(self.currentname)
         self.label_nameTiny.setText(self.currentname)
+
+        dt = QDateTime.fromString(self.currentdate.toString() + " 00:00:00");
+        timestamp = dt.toTime_t();
+        self.prepareGraph(int(self.currentid), timestamp)
+
         self.show()
 
     def uncheckall(self):
@@ -335,9 +340,7 @@ class MoodleStart(QtWidgets.QWidget):
         self.checkBox_avgEngagement.stateChanged.connect(self.checkavgengagement)
 
         # Graph zeichnen
-        dt = QDateTime.fromString(self.currentdate.toString() + " 00:00:00");
-        timeStamp = dt.toTime_t();
-        self.drawGraph(int(self.currentid), timeStamp, self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
+        self.drawGraph(self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
 
         # Feedback bestimmen und ausgeben
         pydate = str(self.currentdate.toPyDate())
@@ -402,76 +405,35 @@ class MoodleStart(QtWidgets.QWidget):
 
     def checkperformance(self):
         self.showperformance = not self.showperformance
-        dt = QDateTime.fromString(self.currentdate.toString() + " 00:00:00");
-        timeStamp = dt.toTime_t();
-        self.drawGraph(int(self.currentid), timeStamp, self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
+        self.drawGraph(self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
 
     def checkavgperformance(self):
         self.showavgperformance = not self.showavgperformance
-        dt = QDateTime.fromString(self.currentdate.toString() + " 00:00:00");
-        timeStamp = dt.toTime_t();
-        self.drawGraph(int(self.currentid), timeStamp, self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
-
+        self.drawGraph(self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
 
     def checktimeplanning(self):
          self.showtimeplanning = not self.showtimeplanning
-         dt = QDateTime.fromString(self.currentdate.toString() + " 00:00:00");
-         timeStamp = dt.toTime_t();
-         self.drawGraph(int(self.currentid), timeStamp, self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
-
+         self.drawGraph(self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
 
     def checkavgtimeplanning(self):
          self.showavgtimeplanning = not self.showavgtimeplanning
-         dt = QDateTime.fromString(self.currentdate.toString() + " 00:00:00");
-         timeStamp = dt.toTime_t();
-         self.drawGraph(int(self.currentid), timeStamp, self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
-
+         self.drawGraph(self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
 
     def checkbackgroundknowledge(self):
         self.showbackgroundknowledge = not self.showbackgroundknowledge
-        dt = QDateTime.fromString(self.currentdate.toString() + " 00:00:00");
-        timeStamp = dt.toTime_t();
-        self.drawGraph(int(self.currentid), timeStamp, self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
-
+        self.drawGraph(self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
 
     def checkavgbackgroundknowledge(self):
         self.showavgbackgroundknowledge = not self.showavgbackgroundknowledge
-        dt = QDateTime.fromString(self.currentdate.toString() + " 00:00:00");
-        timeStamp = dt.toTime_t();
-        self.drawGraph(int(self.currentid), timeStamp, self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
-
+        self.drawGraph(self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
 
     def checkengagement(self):
         self.showengagement = not self.showengagement
-        dt = QDateTime.fromString(self.currentdate.toString() + " 00:00:00");
-        timeStamp = dt.toTime_t();
-        self.drawGraph(int(self.currentid), timeStamp, self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
-
+        self.drawGraph(self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
 
     def checkavgengagement(self):
         self.showavgengagement = not self.showavgengagement
-        dt = QDateTime.fromString(self.currentdate.toString() + " 00:00:00");
-        timeStamp = dt.toTime_t();
-        self.drawGraph(int(self.currentid), timeStamp, self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
-
-
-    def updategraph(self):
-
-        fs = 500
-        f = random.randint(1, 100)
-        ts = 1/fs
-        length_of_signal = 100
-        t = np.linspace(0,1,length_of_signal)
-
-        cosinus_signal = np.cos(2*np.pi*f*t)
-        sinus_signal = np.sin(2*np.pi*f*t)
-
-        self.MplWidget.canvas.axes.clear()
-        self.MplWidget.canvas.axes.plot(t, cosinus_signal)
-        self.MplWidget.canvas.axes.plot(t, sinus_signal)
-        self.MplWidget.canvas.axes.legend(('cosinus', 'sinus'),loc='upper right')
-        self.MplWidget.canvas.axes.set_title('Cosinus - Sinus Signal')
-        self.MplWidget.canvas.draw()
+        self.drawGraph(self.showperformance, self.showavgperformance, self.showtimeplanning, self.showavgtimeplanning, self.showbackgroundknowledge, self.showavgbackgroundknowledge, self.showengagement, self.showavgengagement)
 
     def weekcalculation(self, date, weekend):
         for i in range(len(weekend)-1,-1,-1):
@@ -488,8 +450,8 @@ class MoodleStart(QtWidgets.QWidget):
             arra[i] = 0
         return arra
 
-    def drawGraph(self, uid, date, pf_b, pfa_b, tp_b, tpa_b, lobk_b, lobka_b, e_b, ea_b):
-        weekend = [1601424000,1602028800,1602633600,1603238400,1603843200,1604448000,1605052800,1605657600,1606262400,1607472000,1607904000]
+    def prepareGraph(self, uid, date):
+        weekend = [1601424000, 1602028800, 1602633600, 1603238400, 1603843200, 1604448000, 1605052800, 1605657600, 1606262400, 1607472000, 1607904000]
         userids = users = [124, 133, 143, 159, 160, 161, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185]
         week = self.weekcalculation(date, weekend)
 
@@ -502,83 +464,84 @@ class MoodleStart(QtWidgets.QWidget):
             week = week+1
 
         #Berechen die Durchschnittswerte für P,TP,LOBK,E
-        p_average = self.create_list(week)
-        tp_average = self.create_list(week)
-        lobk_average = self.create_list(week)
-        e_average = self.create_list(week)
+        self.p_average = self.create_list(week)
+        self.tp_average = self.create_list(week)
+        self.lobk_average = self.create_list(week)
+        self.e_average = self.create_list(week)
 
         for userid in userids:
             h_array = list(df.iloc[userid]["Performance"])[:week]
             h_array = np.array(list(map(int, h_array)))
-            p_average += h_array
+            self.p_average += h_array
 
             h_array = list(df.iloc[userid]["TP"])[:week]
             h_array = np.array(list(map(int, h_array)))
-            tp_average += h_array
+            self.tp_average += h_array
 
 
             h_array = list(df.iloc[userid]["LOBK"])[:week]
             h_array = np.array(list(map(int, h_array)))
-            lobk_average += h_array
+            self.lobk_average += h_array
 
             h_array = list(df.iloc[userid]["Engagement"])[:week]
             h_array = np.array(list(map(int, h_array)))
-            e_average += h_array
+            self.e_average += h_array
 
 
-        p_average = p_average/len(users)
-        tp_average = tp_average/len(users)
-        lobk_average = lobk_average/len(users)
-        e_average = e_average/len(users)
+        self.p_average = self.p_average/len(users)
+        self.tp_average = self.tp_average/len(users)
+        self.lobk_average = self.lobk_average/len(users)
+        self.e_average = self.e_average/len(users)
 
         #print(p_average, tp_average,lobk_average,e_average)
 
         #Berechen die P,TP,LOBK,E Werte für den Nutzer
-        performance = list(df.iloc[uid]["Performance"])[:week]
-        performance = np.array(list(map(int, performance)))
+        self.performance = list(df.iloc[uid]["Performance"])[:week]
+        self.performance = np.array(list(map(int, self.performance)))
 
-        tp = list(df.iloc[uid]["TP"])[:week]
-        tp = list(map(int, tp))
+        self.tp = list(df.iloc[uid]["TP"])[:week]
+        self.tp = list(map(int, self.tp))
 
-        lobk = list(df.iloc[uid]["LOBK"])[:week]
+        self.lobk = list(df.iloc[uid]["LOBK"])[:week]
         if week == 11:
-            lobk[10] = np.nan
-            lobk_average[10] = np.nan
-        lobk = list(map(float, lobk))
-        lobk_average = list(map(float, lobk_average))
+            self.lobk[10] = np.nan
+            self.lobk_average[10] = np.nan
+        self.lobk = list(map(float, self.lobk))
+        self.lobk_average = list(map(float, self.lobk_average))
 
-        engagement = list(df.iloc[uid]["Engagement"])[:week]
-        engagement = list(map(int, engagement))
+        self.engagement = list(df.iloc[uid]["Engagement"])[:week]
+        self.engagement = list(map(int, self.engagement))
 
         dates = ['Wed, 30 Sep', 'Wed, 07 Oct', 'Wed, 14 Oct', 'Wed, 21 Oct', 'Wed, 28 Oct', 'Wed, 04 Nov', 'Wed, 11 Nov', 'Wed, 18 Nov', 'Wed, 25 Nov', 'Wed, 09 Dec', 'Mon, 14 Dec']
         # Creates DataFrame. weekend[0:week] , "TP":tp, "LOBK":lobk, "Engagement":engagement})
 
-        df = pd.DataFrame({"Time": dates[:week]})
+        self.graphtime = pd.DataFrame({"Time": dates[:week]})
         #df = df.set_index("Time")
 
 
+    def drawGraph(self, pf_b, pfa_b, tp_b, tpa_b, lobk_b, lobka_b, e_b, ea_b):
         #Falls nichts angezeigt werden soll => return
-        if not (pf_b | tp_b | lobk_b | e_b):
+        if not (pf_b | tp_b | lobk_b | e_b | pfa_b | tpa_b | lobka_b | ea_b):
             return
 
-
+        graphdata = self.graphtime
         # Was soll im Graphen gezeigt werden?
         if pf_b:
-            df["Performance"] = performance
+            graphdata["Performance"] = self.performance
         if pfa_b:
-            df["Performance_A"] = p_average
+            graphdata["Performance_A"] = self.p_average
         if tp_b:
-            df["TP"] = tp
+            graphdata["TP"] = self.tp
         if tpa_b:
-            df["TP_A"] = tp_average
+            graphdata["TP_A"] = self.tp_average
         if lobk_b:
-            df["LOBK"] = lobk
+            graphdata["LOBK"] = self.lobk
         if lobka_b:
-            df["LOBK_A"] = lobk_average
+            graphdata["LOBK_A"] = self.lobk_average
         if e_b:
-            df["Engagement"] = engagement
+            graphdata["Engagement"] = self.engagement
         if ea_b:
-            df["Engagement_A"] = e_average
+            graphdata["Engagement_A"] = self.e_average
 
 
         #Figsize --- Größe des Plots ändern (width, height)
@@ -592,13 +555,14 @@ class MoodleStart(QtWidgets.QWidget):
         self.MplWidget.setFocus()
         self.MplWidget.canvas.axes.clear()
 
-        df.plot(ax=self.MplWidget.canvas.axes, xticks=df.index, yticks=[0.0,1.0,2.0,3.0,4.0], xlabel='date', ylabel='score', title='Feedback score development')
-        self.MplWidget.canvas.axes.set_xticklabels(df.Time, rotation = 45, ha='right',rotation_mode='anchor')
+        graphdata.plot(ax=self.MplWidget.canvas.axes, xticks=graphdata.index, yticks=[0.0,1.0,2.0,3.0,4.0], xlabel='date', ylabel='score', title='Feedback score development')
+        self.MplWidget.canvas.axes.set_xticklabels(graphdata.Time, rotation = 45, ha='right',rotation_mode='anchor')
         self.MplWidget.canvas.figure.tight_layout()
         self.MplWidget.canvas.updateGeometry()
         self.MplWidget.adjustSize()
         self.MplWidget.canvas.draw()
 
+        graphdata.drop(graphdata.columns.difference(['Time']), 1, inplace=True)
         return
 
 
