@@ -1,0 +1,42 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/bell.png</file>
+        <file>icons/bubble.png</file>
+        <file>icons/calender.png</file>
+        <file>icons/calender_white.png</file>
+        <file>icons/course.png</file>
+        <file>icons/course_white.png</file>
+        <file>icons/dash.png</file>
+        <file>icons/dash_white.png</file>
+        <file>icons/file.png</file>
+        <file>icons/home.png</file>
+        <file>icons/home_white.png</file>
+        <file>icons/lupe.png</file>
+        <file>icons/profilepic.png</file>
+        <file>icons/sheet.png</file>
+        <file>icons/sheet_white.png</file>
+        <file>icons/user.png</file>
+        <file>icons/user2.png</file>
+        <file>icons/bell_black.png</file>
+        <file>icons/bubble_black.png</file>
+        <file>icons/lupe_black.png</file>
+        <file>icons/info.png</file>
+        <file>icons/penguin.png</file>
+        <file>icons/profilepic2.png</file>
+        <file>icons/message.png</file>
+        <file>icons/message_orange.png</file>
+        <file>icons/message_red.png</file>
+        <file>icons/message_yellow.png</file>
+    </qresource>
+    <qresource prefix="/pictures">
+        <file>pictures/screens.png</file>
+        <file>pictures/husky.jpg</file>
+        <file>pictures/calendarimage.jpg</file>
+        <file>pictures/cat.png</file>
+        <file>pictures/sloth.jpg</file>
+        <file>pictures/dragon.jpg</file>
+    </qresource>
+    <qresource prefix="/tables">
+        <file>UserScores.csv</file>
+    </qresource>
+</RCC>
