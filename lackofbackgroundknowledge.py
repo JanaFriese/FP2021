@@ -101,7 +101,7 @@ class Lackofbackgroundknowledge:
     #LOBK Level
     def lobk_level(self, uid, date, logs_df, suggorder_weeks, weekend):
         quizweeks = [1,2,7,8,9,10]
-        assignmentweeks = [3,5,10,11]
+        assignmentweeks = [4,6,11,12]
         lobk_level = 999
 
         scores_df = pd.read_csv("./CourseData/UserScores.csv")

@@ -168,8 +168,9 @@ class Performance:
         if week > 0:
             pllw = int(temp[week-1])
 
-        #Für Woche 4 gibt es kein Quiz/Assignment, daher der Performance Score der vorwoche
-        if (week+1 == 4) | (week+1 == 6) | (week+1 == 11):
+        #Für Woche 3,5 gibt es kein Quiz/Assignment, daher der Performance Score der vorwoche
+        assignmentweeks = [4,6,11,12]
+        if (week+1 == 3) | (week+1 == 5):
             self.writeV(uid, week, pllw, "Performance")
             return (pllw, "unchangedNoQA")
 
@@ -217,7 +218,7 @@ class Performance:
                 performanceq = 3
 
             #Die Woche muss >= 1, da wir sonst keine Daten aus vergangenen Wochen haben
-            if week+1 >= 1:
+            if (week+1 >= 1) & (performanceq > 2):
                 #Level 4
                 if (pllw == 3) | (pllw == 4):
                     performanceq = 4
@@ -281,10 +282,10 @@ class Performance:
                 performancea = 3
 
             #Die Woche muss > 1, da wir sonst keine Daten aus vergangenen Wochen haben
-            if week+1 > 1:
+            if (week+1 > 1) & (performancea > 2):
                 #Level 4
                 if (pllw == 3) | (pllw == 4):
-                    performanceq = 4
+                    performancea = 4
 
 
 
@@ -297,7 +298,7 @@ class Performance:
         if (week+1 in quizweeks) & (week+1 in assignmentweeks):
             performance = round((performanceq + performancea*2)/3)
 
-
+        performance = 4
         #Speicher neue Performance in der Datei
         self.writeV(uid, week, performance, "Performance")
 

@@ -56,7 +56,7 @@ class Feedback:
         #PerformanceLevel (performance, x)  x = "improved"|"unchanged"|"worsened"
         quizweeks = [1,2,7,8,9,10]
         quizids = [37,38,39,40,41,42]
-        assignmentweeks = [3,5,10,11]
+        assignmentweeks = [4,6,11,12]
         assignmentids = [27,28,30,31]
         suggorder_weeks = [[606, 608, 609, 610, 611], [613, 614, 615, 616], [618, 619, 620, 621, 623], [634, 635, 636, 637, 638], [644, 641, 642, 643, 640], [642, 646, 647, 649], [663, 664, 666, 667], [668, 669, 671, 672, 673], [678, 679, 681, 680], [688, 689, 690, 697, 698]]
         weekend = [1601424000,1602028800,1602633600,1603238400,1603843200,1604448000,1605052800,1605657600,1606262400,1607472000,1607904000]
@@ -192,7 +192,7 @@ class Feedback:
         quizattempts_df = pd.read_csv("./CourseData/cleanrow_quiz_attempts_s3.csv")
         weekend = [1601424000,1602028800,1602633600,1603238400,1603843200,1604448000,1605052800,1605657600,1606262400,1607472000,1607904000]
         #wochen in denen es Assignments gibt
-        assignmentweeks = [3,5,10,11]
+        assignmentweeks = [4,6,11,12]
         assignmentids = [27,28,30,31]
 
         #wochen in denen es Quiz/Assignments gibt
@@ -207,7 +207,7 @@ class Feedback:
             tp = (999,"keinAutomatischesFeedback")
         
         
-        #Kein Feedback in Woche 4 & 6 da es kein Quiz und kein Assignment gibt & 11 da Assignment4(31) irrelevant ist - "unchangedNoQA"
+        #Kein Feedback in Woche 3 & 5 da es kein Quiz und kein Assignment gibt & 11 da Assignment4(31) irrelevant ist - "unchangedNoQA"
         if (tp[1] == "unchangedNoQA"):
             tp = (tp[0], "unchanged")
             sf += "There is no updated feedback this week as there was no quiz or assignment to complete. Feedback based on last week's results:\n"
