@@ -213,7 +213,7 @@ class TimePlanning:
             quiz_started = self.quiz_start(uid, date, quizattempts_df, weekend, quizids, quizweeks)
             if quiz_started:
                 quizf = self.quiz_finished(uid, date, quizattempts_df, weekend, quizweeks, quizids)
-            #Quiz beendet
+                #Quiz beendet
                 if quizf:
                     if performance_level >= 2:
                         qtime_ga = self.qtimeuntild(uid, date, quizattempts_df, weekend, quizweeks, quizids)
@@ -222,13 +222,13 @@ class TimePlanning:
                             tp_levelq = 2
                         else:
                             tp_levelq = 0
-                #falls das Performance Level < 2 ist
+                    #falls das Performance Level < 2 ist
                     else:
                         tp_levelq = 0
-            #Quiz nicht rechtzeitig beendet
+                #Quiz nicht rechtzeitig beendet
                 else:
                     tp_levelq = 3
-        #quiz nicht angefangen
+            #quiz nicht angefangen
             else:
                 tp_levelq = 3
                 if (tp_level_LW == tp_levelq) | (tp_level_LW == 4):
