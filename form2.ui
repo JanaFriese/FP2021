@@ -34,6 +34,12 @@
      <height>361</height>
     </rect>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>751</width>
+     <height>361</height>
+    </size>
+   </property>
    <widget class="QLineEdit" name="lineEditID">
     <property name="geometry">
      <rect>
@@ -92,6 +98,12 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>151</width>
+      <height>0</height>
+     </size>
+    </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
@@ -110,6 +122,12 @@
       <width>312</width>
       <height>183</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>312</width>
+      <height>183</height>
+     </size>
     </property>
     <property name="selectedDate">
      <date>
@@ -160,6 +178,12 @@
       <width>731</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>731</width>
+      <height>0</height>
+     </size>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;On this page you can log in to the moodle (mockup) application. &lt;/p&gt;&lt;p&gt;Just enter a student id (a full list can be seen by holding the cursor over the &amp;quot;i&amp;quot; icon) and a date within the course span (September 23rd - December &lt;br/&gt;14th). Then you will be forwarded to the moodle page of the student with the entered id at the selected date.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
