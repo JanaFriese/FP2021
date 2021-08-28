@@ -146,7 +146,7 @@ class Lackofbackgroundknowledge:
             else:
                 lobk_level = 1
 
-
+        x = lobk_level
         if lobk_level == "2a":
             x = 21
         elif lobk_level =="2b":
