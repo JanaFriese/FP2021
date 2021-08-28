@@ -171,9 +171,9 @@ class MoodleStart(QtWidgets.QWidget):
         self.label_nameLarge.setText(self.currentname)
         self.label_nameTiny.setText(self.currentname)
 
-        dt = QDateTime.fromString(self.currentdate.toString() + " 15:00:00");
-        timestamp = dt.toTime_t();
-        self.prepareGraph(int(self.currentid), timestamp)
+        #dt = QDateTime.fromString(self.currentdate.toString() + " 15:00:00")
+        #timestamp = dt.toTime_t()
+        self.prepareGraph(int(self.currentid), date)
 
         self.show()
 
