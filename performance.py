@@ -298,7 +298,6 @@ class Performance:
         if (week+1 in quizweeks) & (week+1 in assignmentweeks):
             performance = round((performanceq + performancea*2)/3)
 
-        performance = 4
         #Speicher neue Performance in der Datei
         self.writeV(uid, week, performance, "Performance")
 
