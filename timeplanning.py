@@ -190,7 +190,7 @@ class TimePlanning:
         tp_level_LW = 999
         if week > 0:
             tp_level_LW = scores_df.iloc[uid]["TP"]
-            tp_level_LW = list(temp)
+            tp_level_LW = list(tp_level_LW)
             tp_level_LW = int(tp_level_LW[week-1])
 
 

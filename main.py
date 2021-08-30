@@ -53,13 +53,13 @@ class Login(QtWidgets.QWidget):
 
         self.next = MoodleStart()
         self.pushButtonLogin.clicked.connect(self.openMoodle)
-        weekend = [1601424000,1602028800,1602633600,1603238400,1603843200,1604448000,1605052800,1605657600,1606262400,1607472000,1607904000]
-        users = [133, 143, 159, 160, 161, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185]
+        #weekend = [1601424000,1602028800,1602633600,1603238400,1603843200,1604448000,1605052800,1605657600,1606262400,1607472000,1607904000]
+        #users = [133, 143, 159, 160, 161, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185]
 
-        for user in users:
-            for date in weekend:
-                print(user,date)
-                Feedback().feedback_method(user,date,False)
+        #for user in users:
+         #   for date in weekend:
+          #      print(user,date)
+           #     Feedback().feedback_method(user,date,False)
     def openMoodle(self):
         sid = self.lineEditID.text()
         if sid not in STUDENTS.id.values:
@@ -455,7 +455,7 @@ class MoodleStart(QtWidgets.QWidget):
         userids = users = [124, 133, 143, 159, 160, 161, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185]
         week = self.weekcalculation(date, weekend)
 
-        file = QtCore.QFile(":/tables/UserScores.csv")
+        file = QtCore.QFile("./CourseData/UserScores.csv")
         if file.open(QtCore.QIODevice.ReadOnly):
             f = io.BytesIO(file.readAll().data())
             df = pd.read_csv(f)
