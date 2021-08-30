@@ -272,7 +272,7 @@ class Feedback:
             if self.colour < 3:
                 self.colour = 3
             Feedback.tpcolour = 3
-            sf += "You finished your tasks late this week but you got better than last week, this is amazing. Keep going !"
+            sf += "You have started to work on your tasks this week. That's great! However, you did not finish them again. To finish your tasks on time, try to plan out your week in advance. A to-do-list or a timer might help you to organize your tasks and prevent time pressure!"
         #Level 3 - worsened
         elif (tp[0] == 3) & (tp[1] == "worsened"):
             if self.colour < 3:
