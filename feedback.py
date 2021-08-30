@@ -118,7 +118,7 @@ class Feedback:
             if self.colour < 3:
                 self.colour = 3
             Feedback.pcolour = 3
-            sf += "You seem to have problems by understanding the material. Now, we are at the beginning so try to ask the teacher or post your questions in the forum so that your difficulties can be clarified."
+            sf += "You seem to have problems understanding the course material. We are just beginning, so you have not missed much. Ask the teacher or post your questions in the forum so that your difficulties can be clarified. You can do this!"
 
         #Woche > 1
         #Level 0 - improved
@@ -174,7 +174,7 @@ class Feedback:
             if self.colour < 3:
                 self.colour = 3
             Feedback.pcolour = 3
-            sf += "Again you seem to struggle by understanding the material. Try to find help so you can improve your behaviour!"
+            sf += "You still seem to struggle to understand  the material. If you need help, don’t hesitate to ask the teacher or post your questions in the forum!"
 
         #Level 4 - worsened
         elif (pl[0] == 4) & (pl[1] == "worsened"):
@@ -316,16 +316,28 @@ class Feedback:
             #Woche 1
             #Level 0
             if (lobk[0] == 0) & (lobk[1] == "WeekOne"):
-                sf += "This week, you studied all the material. This is the best way to learn the content of this course. That’s awesome! Keep it up!"
+                sf += "You have studied all the material from the first week. A great way to start the course! Keep it up!"
             #Level 1
             elif (lobk[0] == 1) & (lobk[1] == "WeekOne"):
-                sf += "You have looked at all the material, but not in the order suggested. In the next weeks, try to follow the order to get a better overview of the topics."
-            #Level 3
+                sf += "You have looked at all the material, that’s amazing! In the next weeks, try to also follow the order for a better understanding of the topics. Good job!"
+            #Level 2 - 2a
+            elif (lobk[0] == 21) & (lobk[1] == "WeekOne"):
+                if self.colour < 2:
+                    self.colour = 2
+                Feedback.lobkcolour = 2
+                sf += "You looked at all the material and followed the suggested order, that is great! Keep up the good work! However, if you do have questions about the material, never hesitate to ask!"
+            #Level 2 - 2b
+            elif (lobk[0] == 22) & (lobk[1] == "WeekOne"):
+                if self.colour < 2:
+                    self.colour = 2
+                Feedback.lobkcolour = 2
+                sf += "You have not looked at the whole material this week. For a better understanding, it may be beneficial to look at all the material. Try it out next week!"
+           #Level 3
             elif (lobk[0] == 3) & (lobk[1] == "WeekOne"):
                 if self.colour < 3:
                     self.colour = 3
                 Feedback.lobkcolour = 3
-                sf += "You have looked at all the material but not in the suggested order. In the next weeks, try to follow the order to get a better overview of the topics."
+                sf += "You have looked at all the material, but not in the suggested order. This might be the reason for your problems to understand it. In the next weeks, try to follow the order to get a better understanding of the contents. You can do it!"
             #Level 4
             elif (lobk[0] == 4) & (lobk[1] == "WeekOne"):
                 if self.colour < 4:
@@ -351,18 +363,43 @@ class Feedback:
             elif (lobk[0] == 1) & (lobk[1] == "unchanged"):
                 sf += "You keep studying all the material. That’s amazing! However, following the suggested order might give you a better understanding of the contents. Try it out next time!"
 
-            #Level 2 - 2a
-            elif (lobk[0] == 21):
+            #Level 2a - improved
+            elif (lobk[0] == 21) & (lobk[1] == "improved"):
                 if self.colour < 2:
                     self.colour = 2
                 Feedback.lobkcolour = 2
-                sf += "You looked at all the material and followed the suggested order, that is great! Keep up the good work!"
-            #Level 2 - 2b
-            elif (lobk[0] == 22):
+                sf += "You looked at all the material and followed the suggested order, that is great! However, you still seem to have problems understanding it. Don’t hesitate to ask for help if you need it!"
+            #Level 2a - worsened   
+            elif (lobk[0] == 21) & (lobk[1] == "worsened"):
+                if self.colour < 2:
+                    self.colour = 2
+                Feedback.lobkcolour = 2
+                sf += "You looked at all the material and followed the suggested order again, good job! However, you don’t seem to understand everything this week. Don’t hesitate to ask for help if you need it!"
+            #Level 2a - unchanged
+            elif (lobk[0] == 21) & (lobk[1] == "unchagend"):
+                if self.colour < 2:
+                    self.colour = 2
+                Feedback.lobkcolour = 2
+                sf += "You looked at all the material and followed the suggested order again, very good! However, you still struggle with your performance. Don’t hesitate to ask for help if you need it!"
+            
+            #Level 2b - improved
+            elif (lobk[0] == 22) & (lobk[1] == "improved"):
+                if self.colour < 2:
+                    self.colour = 2
+                Feedback.lobkcolour = 2
+                sf += "You have not looked at the whole material. However, you performed well this week. That’s amazing! Just try to catch up with the material so you don’t miss too much."
+            #Level 2b - worsened
+            elif (lobk[0] == 22) & (lobk[1] == "worsened"):
                 if self.colour < 2:
                     self.colour = 2
                 Feedback.lobkcolour = 2
                 sf += "You have not looked at the whole material this week. For a deeper understanding, it may be beneficial to look at all the material. Try it out next week!"
+            #Level 2b - unchangend
+            elif (lobk[0] == 22) & (lobk[1] == "unchanged"):
+                if self.colour < 2:
+                    self.colour = 2
+                Feedback.lobkcolour = 2
+                sf += "You have not looked at the whole material again this week. Your performance is still good, but be careful not to miss too much. You can do this!"
 
 
             #Level 3 - improved
@@ -429,10 +466,10 @@ class Feedback:
             sf += "Your engagement in the first week was amazing, keep it up!"
         #Level 1
         elif (e[0] == 1) & (e[1] == "WeekOne"):
-            sf += "You are engaged, almost perfect – Try to focus on it more next week so your engagement will be perfect."
+            sf += "You are very engaged in this course. Awesome! Go on and complete the last few tasks for a perfect start!"
         #Level 2
         elif (e[0] == 2) & (e[1] == "WeekOne"):
-            sf += "You are engaged, but you can do better! Try to focus on it next week!"
+            sf += "You are already quite engaged in this course, but you can do better! Try to focus on it next week so you won’t miss too much!"
             if self.colour < 2:
                 self.colour = 2
             Feedback.ecolour = 2            
@@ -441,12 +478,12 @@ class Feedback:
             if self.colour < 3:
                 self.colour = 3
             Feedback.ecolour = 3
-            sf += "Yet, you do not engage a lot in this course. Maybe it is because you are in the first week? Try to improve your engagement so you do not get into trouble."
+            sf += "Yet, you do not engage a lot in this course. Maybe it is because you are in the first week? Don’t worry, it’s not too late to start!"
         #Level 4
         elif (e[0] == 4) & (e[1] == "WeekOne"):
             self.colour = 4
             Feedback.ecolour = 4
-            sf += "Yet, you do not engage a lot in this course. Maybe it is because you are in the first week? Try to improve your engagement so you do not get into trouble."
+            sf += "Yet, you do not engage a lot in this course. Maybe it is because you are in the first week? A slow start will not get you into trouble, but rev up so you won’t lose track!"
 
         #Woche > 1
         #Level 0 - improved
@@ -496,7 +533,7 @@ class Feedback:
             if self.colour < 3:
                 self.colour = 3
             Feedback.ecolour = 3
-            sf += "Your engagement in this course has decreased. Increase your engagement again before you have missed too much!"
+            sf += "Your engagement in this course has decreased. Increase your engagement again before you have missed too much! You can still do this!"
         #Level 3 - unchanged
         elif (e[0] == 3) & (e[1] == "unchanged"):
             if self.colour < 3:
